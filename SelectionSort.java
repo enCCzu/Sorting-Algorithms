@@ -1,4 +1,4 @@
-public static void sort(int[] arr){
+public static long selectionSort(int[] arr){
   int smallestInt, temp; 
   
   // One by one move boundary of unsorted part of the array
@@ -16,4 +16,5 @@ public static void sort(int[] arr){
       }
     }
   }
+  return (System.currentTimeMillis()); 
 }
