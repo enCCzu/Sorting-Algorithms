@@ -120,10 +120,10 @@ public class SortingAlgorithms {
   
   /** Written by Oscar 
    * Method to merge the subarrays of a[] 
-   * @param a 
-   * @param beg 
-   * @param mid 
-   * @param end 
+   * @param a Array that is to be sorted
+   * @param beg Beginning index of array
+   * @param mid Middle index of array
+   * @param end End index of array
    */  
   public static void merge(int a[], int beg, int mid, int end)    
   {    
@@ -176,9 +176,9 @@ public class SortingAlgorithms {
   
   /** Written by Oscar
    * Description: 
-   * @param a 
-   * @param beg 
-   * @param end 
+   * @param a Array that is to be sorted
+   * @param beg Beginning index of array
+   * @param end End index of array
    */
   public static long mergeSort(int a[], int beg, int end)  
   {  
