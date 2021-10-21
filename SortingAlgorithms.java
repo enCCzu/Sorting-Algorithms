@@ -47,11 +47,8 @@ public class SortingAlgorithms {
       }
       arr[j + 1] = key;
     }
-    
     long timeTwo = System.currentTimeMillis();// gets the current time in miliseconds after sorting
-    
     long executionTime = timeTwo - timeOne; //subtracts the times to get the total execution time
-    
     return executionTime;//prints the total execution time
   }
   
@@ -254,6 +251,7 @@ public class SortingAlgorithms {
         else if (algorithmChoice == 3){
           time = mergeSort(arr, 0, arr.length-1); 
         }
+        
         else{
           time = selectionSort(arr);
         }
@@ -324,6 +322,7 @@ public class SortingAlgorithms {
       // If -1, call the method that sorts all predetermined sizes and produces a csv file 
       if (intSelection == -1){
         sortAllSizes(selection);
+        intValidSelection = true;
       }
       // If they input a positive value or 0, then sort normally 
       else if(intSelection >= 0){
@@ -340,15 +339,23 @@ public class SortingAlgorithms {
         // checking what sorting method they chose and getting the sorting time 
         if (selection == 1){
           time = insertionSort(intArray);
+          intValidSelection = true;
         }
         else if (selection == 2){
           time = quickSort(intArray, 0, intArray.length-1); 
+          intValidSelection = true;
         }
         else if (selection == 3){
           time = mergeSort(intArray, 0, intArray.length-1); 
+          intValidSelection = true;
+        }
+        else if (selection == 4){
+          time = selectionSort(intArray);
+          intValidSelection = true;
         }
         else{
-          time = selectionSort(intArray);
+          System.out.println("You have entered an invalid number."); 
+          continue; 
         }
         // Outputting results 
         System.out.println("The smallest value is: " + intArray[0]);
@@ -356,9 +363,6 @@ public class SortingAlgorithms {
         System.out.println("Total time to sort the data was: " + time + " ms.");
       }
       // If they enter a negative number under -1, then they must input another number 
-      else{
-        System.out.println("You have selected an invalid number. Please select a number greater than -1");
-      }
     }while(intValidSelection == false);
     
   }
