@@ -119,79 +119,84 @@ public class SortingAlgorithms {
   
   
   /** Written by Oscar 
-   * Method to merge the subarrays of a[] 
+   * Description: Merges two subarrays of arr[].
    * @param a Array that is to be sorted
    * @param beg Beginning index of array
    * @param mid Middle index of array
    * @param end End index of array
    */  
-  public static void merge(int a[], int beg, int mid, int end)    
-  {    
-    int i, j, k;  
-    int n1 = mid - beg + 1;    
-    int n2 = end - mid;    
-    
-    /* temporary Arrays */  
-    int LeftArray[] = new int[n1];  
-    int RightArray[] = new int[n2];  
-    
-    /* copy data to temp arrays */  
-    for (i = 0; i < n1; i++)    
-      LeftArray[i] = a[beg + i];    
-    for (j = 0; j < n2; j++)    
-      RightArray[j] = a[mid + 1 + j];    
-    
-    i = 0; /* initial index of first sub-array */  
-    j = 0; /* initial index of second sub-array */   
-    k = beg;  /* initial index of merged sub-array */  
-    
-    while (i < n1 && j < n2)    
-    {    
-      if(LeftArray[i] <= RightArray[j])    
-      {    
-        a[k] = LeftArray[i];    
-        i++;    
-      }    
-      else    
-      {    
-        a[k] = RightArray[j];    
-        j++;    
-      }    
-      k++;    
+    public static void merge(int arr[], int l, int m, int r)
+    {
+        // Find sizes of two subarrays to be merged
+        int n1 = m - l + 1;
+        int n2 = r - m;
+  
+        /* Create temp arrays */
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+  
+        /*Copy data to temp arrays*/
+        for (int i = 0; i < n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            R[j] = arr[m + 1 + j];
+  
+        /* Merge the temp arrays */
+  
+        // Initial indexes of first and second subarrays
+        int i = 0, j = 0;
+  
+        // Initial index of merged subarray array
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            }
+            else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+  
+        /* Copy remaining elements of L[] if any */
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+  
+        /* Copy remaining elements of R[] if any */
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
     }    
-    while (i<n1)    
-    {    
-      a[k] = LeftArray[i];    
-      i++;    
-      k++;    
-    }    
-    
-    while (j<n2)    
-    {    
-      a[k] = RightArray[j];    
-      j++;    
-      k++;    
-    }    
-  }    
   
   /** Written by Oscar
-   * Description: 
-   * @param a Array that is to be sorted
+   * Description: Main function that sorts arr[l..r] using merge()
+       * @param a Array that is to be sorted
    * @param beg Beginning index of array
    * @param end End index of array
    */
-  public static long mergeSort(int a[], int beg, int end)  
-  {  
-    long time = System.currentTimeMillis();
-    if (beg < end)   
-    {  
-      int mid = (beg + end) / 2;  
-      mergeSort(a, beg, mid);  
-      mergeSort(a, mid + 1, end);  
-      merge(a, beg, mid, end);  
-    } 
-    return System.currentTimeMillis() - time; 
-  }   
+    public static long mergeSort(int arr[], int l, int r)
+    {
+        long time = System.currentTimeMillis();
+        if (l < r) {
+            // Find the middle point
+            int m =l+ (r-l)/2;
+  
+            // Sort first and second halves
+            mergeSort(arr, l, m);
+            mergeSort(arr, m + 1, r);
+  
+            // Merge the sorted halves
+            merge(arr, l, m, r);
+        }
+        return System.currentTimeMillis() - time; 
+    }  
   
   
   /** Written by Erin
