@@ -1,2 +1,2 @@
 # Sorting-Algorithms
-School project 
+School project - Sorting Algorithm is the completed program
