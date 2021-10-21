@@ -67,12 +67,25 @@ public class SortingAlgorithms {
       int partitionIndex = sorter(arr, low, high); //Takes the last element in target array and places it in correct spot
       
       //Below 2 checks the 2 sub arrays to the sides of the partition element: those lower than it and those higher
+
+      if (partitionIndex - low <= high - (partitionIndex + 1)){
+
+        quickSort(arr, low, partitionIndex);
+
+        low = partitionIndex + 1;
+
+      }
       
-      quickSort(arr, low, partitionIndex - 1);
+      //quickSort(arr, low, partitionIndex - 1);
+
+      else{
+
+        quickSort(arr, partitionIndex + 1, high);
+
+        high = partitionIndex;
+
+      }
       
-      quickSort(arr, partitionIndex + 1, high);
-      
-    }
     return System.currentTimeMillis() - time; 
   }
   
