@@ -61,7 +61,6 @@ public class SortingAlgorithms {
     * @return the time of the method
     */
   public static long quickSort(int[] arr, int low, int high){
-    long time = System.currentTimeMillis();
     //Checks if a partitioned array has everything placed in order (low = high means the array has one element which is in order)
     if (low < high) {
       
@@ -85,7 +84,7 @@ public class SortingAlgorithms {
 
       }
     }
-    return System.currentTimeMillis() - time; 
+    return System.currentTimeMillis(); 
   }
   
   /** Written by James Z.
@@ -266,7 +265,8 @@ public class SortingAlgorithms {
           time = insertionSort(arr);
         }
         else if (algorithmChoice == 2){
-          time = quickSort(arr, 0, arr.length-1); 
+          long timeStart = System.currentTimeMillis();
+          time = quickSort(intArray, 0, intArray.length-1) = timeStart; 
         }
         else if (algorithmChoice == 3){
           time = mergeSort(arr, 0, arr.length-1); 
@@ -362,7 +362,8 @@ public class SortingAlgorithms {
           intValidSelection = true;
         }
         else if (selection == 2){
-          time = quickSort(intArray, 0, intArray.length-1); 
+          long timeStart = System.currentTimeMillis();
+          time = quickSort(intArray, 0, intArray.length-1) = timeStart; 
           intValidSelection = true;
         }
         else if (selection == 3){
