@@ -55,9 +55,10 @@ public class SortingAlgorithms {
   
   /**Written by James Z.
     * Description: 
-    * @param arr
-    * @param low 
-    * @param high
+    * @param arr is the integer array that will be sorted
+    * @param low is the index that the sorter will start at
+    * @param high is the index that the sorter will stop at
+    * @return the time of the method
     */
   public static long quickSort(int[] arr, int low, int high){
     long time = System.currentTimeMillis();
@@ -75,8 +76,6 @@ public class SortingAlgorithms {
         low = partitionIndex + 1;
 
       }
-      
-      //quickSort(arr, low, partitionIndex - 1);
 
       else{
 
@@ -91,9 +90,10 @@ public class SortingAlgorithms {
   
   /** Written by James Z.
     * Description: 
-    * @param sortingArray
-    * @param low 
-    * @param high
+    * @param sortingArray is the integer array that will be sorted
+    * @param low is the index that the array will start at
+    * @param high is the index that the array will stop at
+    * @return the index of the partitioning element
     */
   public static int sorter (int[] sortingArray, int low, int high){
     
