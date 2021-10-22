@@ -265,7 +265,7 @@ public class SortingAlgorithms {
         }
         else if (algorithmChoice == 2){
           long timeStart = System.currentTimeMillis();
-          quickSort(intArray, 0, intArray.length-1); 
+          quickSort(arr, 0, arr.length-1); 
           time = System.currentTimeMillis() - timeStart; 
         }
         else if (algorithmChoice == 3){
