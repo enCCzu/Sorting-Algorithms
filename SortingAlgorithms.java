@@ -266,7 +266,7 @@ public class SortingAlgorithms {
         }
         else if (algorithmChoice == 2){
           long timeStart = System.currentTimeMillis();
-          time = quickSort(intArray, 0, intArray.length-1) = timeStart; 
+          time = quickSort(intArray, 0, intArray.length-1) - timeStart; 
         }
         else if (algorithmChoice == 3){
           time = mergeSort(arr, 0, arr.length-1); 
@@ -363,7 +363,7 @@ public class SortingAlgorithms {
         }
         else if (selection == 2){
           long timeStart = System.currentTimeMillis();
-          time = quickSort(intArray, 0, intArray.length-1) = timeStart; 
+          time = quickSort(intArray, 0, intArray.length-1) - timeStart; 
           intValidSelection = true;
         }
         else if (selection == 3){
